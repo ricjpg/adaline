@@ -1,19 +1,19 @@
 import numpy as np
 
-# Datos de entrenamiento para la compuerta AND con entradas binarias y salidas bipolares
+# Datos de entrenamiento para la compuerta OR con entradas y salidas bipolares
 X = np.array([
-    [1, 0, 0],  # Sesgo + entrada 0, 0
-    [1, 0,  1],  # Sesgo + entrada 0, 1
-    [1,  1, 0],  # Sesgo + entrada 1, 0
+    [1, -1, -1],  # Sesgo + entrada -1, -1
+    [1, -1,  1],  # Sesgo + entrada -1, 1
+    [1,  1, -1],  # Sesgo + entrada 1, -1
     [1,  1,  1]   # Sesgo + entrada 1, 1
 ])
-d = np.array([-1, -1, -1, 1])  # Salida deseada bipolar
+d = np.array([-1, 1, 1, 1])  # Salida deseada bipolar
 
 # Inicialización de pesos y tasa de aprendizaje
 weights = np.zeros(X.shape[1])
 learning_rate = 0.1
-epochs = 500  # Número máximo de iteraciones
-tolerance = 0.1  # Tolerancia para la convergencia
+epochs = 100  # Número máximo de iteraciones
+tolerance = 0.9  # Tolerancia para la convergencia
 
 # Entrenamiento
 for epoch in range(epochs):
